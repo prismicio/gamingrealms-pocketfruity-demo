@@ -1,0 +1,11 @@
+
+nav.side-menu
+  ul
+    if menu
+      each linkItem, index in sidemenu.data.menuLinks
+        - var odd = (index + 1) % 2 === 0
+        - var styleClass = odd ? 'odd' : '';
+        li(class=styleClass)
+          img(src=linkItem.thumbnail.url)
+          a(href=Link.url(linkItem.link, ctx.linkResolver))
+            != linkItem.label
